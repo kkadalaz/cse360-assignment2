@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class SimpleListTest {
 
 	/**
-	 * tests add
+	 * test add
 	 */
 	@Test
 	void testAdd() {
@@ -17,6 +17,27 @@ class SimpleListTest {
 		list.add(3);
 		list.add(4);
 		assertEquals(list.toString(), "4 3 2 1");
+	}
+
+	/**
+	 * test add on a full list
+	 */
+	@Test
+	void testAddFull() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.add(10);
+		list.add(11);
+		list.add(12);
+		assertEquals(list.toString(), "12 11 10 9 8 7 6 5 4 3 2 1");
 	}
 
 	/**
@@ -87,7 +108,8 @@ class SimpleListTest {
 		list.add(9);
 		list.add(10);
 		list.add(11);
-		assertEquals(list.count(), 10);
+		list.add(12);
+		assertEquals(list.count(), 12);
 	}
 
 	/**
@@ -126,26 +148,6 @@ class SimpleListTest {
 	}
 
 	/**
-	 * test toString with add on a full list
-	 */
-	@Test
-	void testToStringAddFull() {
-		SimpleList list = new SimpleList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.add(11);
-		assertEquals(list.toString(), "11 10 9 8 7 6 5 4 3 2");
-	}
-
-	/**
 	 * test toString with remove on an empty list
 	 */
 	@Test
@@ -175,26 +177,6 @@ class SimpleListTest {
 		list.add(3);
 		list.add(4);
 		assertEquals(list.search(1), 3);
-	}
-
-	/**
-	 * test search with add on a full list
-	 */
-	@Test
-	void testSearchAddFull() {
-		SimpleList list = new SimpleList();
-		list.add(1); // should fall off the list
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		list.add(5);
-		list.add(6);
-		list.add(7);
-		list.add(8);
-		list.add(9);
-		list.add(10);
-		list.add(11);
-		assertEquals(list.search(1), -1);
 	}
 
 	/**

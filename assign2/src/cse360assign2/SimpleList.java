@@ -33,11 +33,30 @@ public class SimpleList {
 	 * @param element the element to be added
 	 */
 	public void add(int element) {
-		// loop backwards
-		for (int counter = LENGTH - 1; counter > 0; counter--) {
-			// move each element down one spot
-			list[counter] = list[counter - 1];
+		// if list is full
+		if (count == LENGTH) {
+			// expand length
+			int newlen = (int) (LENGTH * 1.5);
+			// create bigger temporary list
+			int[] newlist = new int[newlen];
+			// loop backwards through original list
+			for (int counter = LENGTH; counter > 0; counter--) {
+				// copy to new list
+				// move each element down one spot
+				newlist[counter] = list[counter - 1];
+			}
+			// update length
+			LENGTH = newlen;
+			// update list
+			list = newlist;
+		} else {
+			// loop backwards
+			for (int counter = LENGTH - 1; counter > 0; counter--) {
+				// move each element down one spot
+				list[counter] = list[counter - 1];
+			}
 		}
+		
 		// insert the element at the start of the list
 		list[0] = element;
 
