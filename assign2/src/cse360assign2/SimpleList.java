@@ -17,9 +17,9 @@ package cse360assign2;
  */
 public class SimpleList {
 
-    public int[] list;
-    public int count;
-    public int LENGTH;
+    private int[] list;
+    private int count;
+    private int LENGTH;
 
     /**
      * instantiates the list
@@ -40,7 +40,12 @@ public class SimpleList {
     		list[counter] = list[counter - 1];
     	}
     	list[0] = element;
-    	count ++;
+
+    	// if list is not yet full
+    	if (count < LENGTH) {
+        	// update count
+    		count++;
+    	}
     }
 
     /**
@@ -56,6 +61,11 @@ public class SimpleList {
         		list[counter] = list[counter + 1];
         	}
         	list[9] = 0;
+        }
+        // if list is not already empty
+        if (count > 0) {
+        	// update count
+            count--;        	
         }
     }
 
