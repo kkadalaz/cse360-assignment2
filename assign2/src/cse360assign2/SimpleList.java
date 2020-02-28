@@ -9,7 +9,14 @@
 package cse360assign2;
 
 /**
- * this is the SimpleList class it holds 10 integers
+ * this is a list of integers
+ * <p>
+ * <ul>
+ * <li>this holds 10 integers, initially
+ * <li>this can increase its length, if the list is full
+ * <li>this can decrease its length, if the list contains many empty elements
+ * </ul>
+ * </p>
  * 
  * @author Kesav Kadalazhi
  */
@@ -17,29 +24,41 @@ public class SimpleList {
 
 	private int[] list;
 	private int count;
-	
+
 	public int LENGTH;
 
 	/**
-	 * instantiates the list
+	 * instantiate list
+	 * <p>
+	 * <ul>
+	 * <li>initial length is 10
+	 * <li>initial list contains no elements
+	 * </ul>
+	 * </p>
 	 */
 	public SimpleList() {
 		LENGTH = 10;
 		list = new int[LENGTH];
 	}
-	
+
 	/**
 	 * access the first element in the list
 	 * 
 	 * @return the first element in the list, -1 if not found
 	 */
 	public int first() {
+		// if list empty, return -1, else return first element
 		return count == 0 ? -1 : list[0];
 	}
 
 	/**
-	 * adds element to the start of the list, pushing all other elements down
-	 * if the list is full, increase the size of the list
+	 * add element to the start of the list
+	 * <p>
+	 * <ul>
+	 * <li>push all other elements down
+	 * <li>increase the size of the list, if the list is full
+	 * </ul>
+	 * </p>
 	 * 
 	 * @param element the element to be added
 	 */
@@ -67,7 +86,7 @@ public class SimpleList {
 				list[counter] = list[counter - 1];
 			}
 		}
-		
+
 		// insert the element at the start of the list
 		list[0] = element;
 
@@ -79,8 +98,13 @@ public class SimpleList {
 	}
 
 	/**
-	 * adds element to the end of the list, pushing all other elements down
-	 * if the list is full, increase the size of the list
+	 * add element to the end of the list
+	 * <p>
+	 * <ul>
+	 * <li>do not modify any other elements
+	 * <li>increase the size of the list, if the list is full
+	 * </ul>
+	 * </p>
 	 * 
 	 * @param element the element to be appended
 	 */
@@ -104,7 +128,7 @@ public class SimpleList {
 
 		// add element to the end of the list
 		list[count] = element;
-	
+
 		// if list is not yet full
 		if (count < LENGTH) {
 			// update count
@@ -113,11 +137,14 @@ public class SimpleList {
 	}
 
 	/**
-	 * removes an element from the list.
-	 * <p><ul>
-	 * <li> move all following elements up
-	 * <li> if list has more than 25% empty places, decrease the size of the list
-	 * </ul></p>
+	 * remove element from list, if found
+	 * <p>
+	 * <ul>
+	 * <li>move all following elements up, if found
+	 * <li>do nothing, if not found
+	 * <li>decrease the size of the list, if list has more than 25% empty places
+	 * </ul>
+	 * </p>
 	 * 
 	 * @param element the element to be removed
 	 */
@@ -134,14 +161,14 @@ public class SimpleList {
 			}
 			// remove the last element
 			list[LENGTH - 1] = 0;
+
+			// if list is not already empty
+			if (count > 0) {
+				// update count
+				count--;
+			}
 		}
 
-		// if list is not already empty
-		if (count > 0) {
-			// update count
-			count--;
-		}
-		
 		// if the list is more than 25% zeroes
 		// numzeroes / length < 0.25
 		// numzeroes / length < 1/4
@@ -169,7 +196,7 @@ public class SimpleList {
 	}
 
 	/**
-	 * searches for a given element in the list
+	 * search in list
 	 * 
 	 * @param element the element to search
 	 * @return index of element, -1 if not found
@@ -196,22 +223,32 @@ public class SimpleList {
 	}
 
 	/**
+	 * access the number of elements in the list
+	 * 
 	 * @return number of elements in the list
 	 */
 	public int count() {
+		// count is modified in other methods
 		return count;
 	}
 
 	/**
+	 * string-ify list
+	 * 
 	 * @return string version of the list
 	 */
 	public String toString() {
+		// StringBuilder is more efficient
 		StringBuilder toString = new StringBuilder();
+		// loop over list
 		for (int counter = 0; counter < LENGTH; counter++) {
+			// if element is not empty
 			if (list[counter] != 0) {
+				// add element and space separator
 				toString.append(list[counter]).append(' ');
 			}
 		}
+		// remove trailing space
 		return toString.toString().trim();
 	}
 

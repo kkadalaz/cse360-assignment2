@@ -259,6 +259,17 @@ class SimpleListTest {
 	}
 
 	/**
+	 * test count with remove on an element not in the list
+	 */
+	@Test
+	void testCountRemoveNotInList() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.remove(2);
+		assertEquals(list.count(), 1);
+	}
+
+	/**
 	 * test count with remove from an empty list
 	 */
 	@Test
