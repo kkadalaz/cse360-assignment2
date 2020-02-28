@@ -241,12 +241,9 @@ public class SimpleList {
 		// StringBuilder is more efficient
 		StringBuilder toString = new StringBuilder();
 		// loop over list
-		for (int counter = 0; counter < LENGTH; counter++) {
-			// if element is not empty
-			if (list[counter] != 0) {
-				// add element and space separator
-				toString.append(list[counter]).append(' ');
-			}
+		for (int counter = 0; counter < count; counter++) {
+			// add element and space separator
+			toString.append(list[counter]).append(' ');
 		}
 		// remove trailing space
 		return toString.toString().trim();
