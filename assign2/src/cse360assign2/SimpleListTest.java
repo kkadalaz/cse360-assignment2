@@ -257,7 +257,7 @@ class SimpleListTest {
 		list.add(10);
 		list.remove(9);
 		list.remove(1);
-		assertEquals(0, list.count());
+		assertEquals(8, list.count());
 	}
 
 	/**
