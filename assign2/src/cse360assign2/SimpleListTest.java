@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class SimpleListTest {
 
 	/**
-	 * test first
+	 * test first with add, append, remove
 	 */
 	@Test
 	void testFirst() {
@@ -18,7 +18,9 @@ class SimpleListTest {
 		list.append(4);
 		list.append(5);
 		list.append(6);
-		assertEquals(list.first(), 3);
+		list.remove(3);
+		list.remove(1);
+		assertEquals(list.first(), 2);
 	}
 
 	/**
@@ -28,19 +30,6 @@ class SimpleListTest {
 	void testFirstEmpty() {
 		SimpleList list = new SimpleList();
 		assertEquals(list.first(), -1);
-	}
-
-	/**
-	 * test add
-	 */
-	@Test
-	void testAdd() {
-		SimpleList list = new SimpleList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		assertEquals(list.toString(), "4 3 2 1");
 	}
 
 	/**
@@ -204,19 +193,6 @@ class SimpleListTest {
 	}
 
 	/**
-	 * test count with add
-	 */
-	@Test
-	void testCountAdd() {
-		SimpleList list = new SimpleList();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(4);
-		assertEquals(list.count(), 4);
-	}
-
-	/**
 	 * test count with add on a full list
 	 */
 	@Test
@@ -265,7 +241,7 @@ class SimpleListTest {
 	void testCountRemoveNotInList() {
 		SimpleList list = new SimpleList();
 		list.add(1);
-		list.remove(2);
+		list.remove(2); // should do nothing
 		assertEquals(list.count(), 1);
 	}
 
