@@ -20,7 +20,7 @@ class SimpleListTest {
 		list.append(6);
 		list.remove(3);
 		list.remove(1);
-		assertEquals(list.first(), 2);
+		assertEquals(2, list.first());
 	}
 
 	/**
@@ -29,7 +29,7 @@ class SimpleListTest {
 	@Test
 	void testFirstEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.first(), -1);
+		assertEquals(-1, list.first());
 	}
 
 	/**
@@ -46,7 +46,7 @@ class SimpleListTest {
 		list.append(6);
 		list.remove(6);
 		list.remove(1);
-		assertEquals(list.last(), 5);
+		assertEquals(5, list.last());
 	}
 
 	/**
@@ -55,7 +55,7 @@ class SimpleListTest {
 	@Test
 	void testLastEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.last(), -1);
+		assertEquals(-1, list.last());
 	}
 
 	/**
@@ -76,7 +76,7 @@ class SimpleListTest {
 		list.add(10);
 		list.add(11);
 		list.add(12);
-		assertEquals(list.toString(), "12 11 10 9 8 7 6 5 4 3 2 1");
+		assertEquals("12 11 10 9 8 7 6 5 4 3 2 1", list.toString());
 	}
 
 	/**
@@ -97,7 +97,7 @@ class SimpleListTest {
 		list.append(10);
 		list.append(11);
 		list.append(12);
-		assertEquals(list.toString(), "1 2 3 4 5 6 7 8 9 10 11 12");
+		assertEquals("1 2 3 4 5 6 7 8 9 10 11 12", list.toString());
 	}
 
 	/**
@@ -117,7 +117,7 @@ class SimpleListTest {
 		list.add(9);
 		list.remove(9);
 		list.remove(1);
-		assertEquals(list.toString(), "8 7 6 5 4 3 2");
+		assertEquals("8 7 6 5 4 3 2", list.toString());
 	}
 
 	/**
@@ -136,7 +136,7 @@ class SimpleListTest {
 		list.add(8);
 		list.add(9);
 		list.remove(10);
-		assertEquals(list.toString(), "9 8 7 6 5 4 3 2 1");
+		assertEquals("9 8 7 6 5 4 3 2 1", list.toString());
 	}
 
 	/**
@@ -145,7 +145,7 @@ class SimpleListTest {
 	@Test
 	void testLengthEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.LENGTH, 10);
+		assertEquals(10, list.LENGTH);
 	}
 
 	/**
@@ -165,7 +165,7 @@ class SimpleListTest {
 		list.add(9);
 		list.add(10);
 		list.add(11);
-		assertEquals(list.LENGTH, 15);
+		assertEquals(15, list.LENGTH);
 	}
 
 	/**
@@ -186,7 +186,7 @@ class SimpleListTest {
 		list.add(10);
 		list.add(11);
 		list.add(12);
-		assertEquals(list.LENGTH, 15);
+		assertEquals(15, list.LENGTH);
 	}
 
 	/**
@@ -206,7 +206,7 @@ class SimpleListTest {
 		list.add(9);
 		list.remove(9);
 		list.remove(1);
-		assertEquals(list.LENGTH, 7);
+		assertEquals(7, list.LENGTH);
 	}
 
 	/**
@@ -215,7 +215,7 @@ class SimpleListTest {
 	@Test
 	void testCountEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.count(), 0);
+		assertEquals(0, list.count());
 	}
 
 	/**
@@ -236,7 +236,7 @@ class SimpleListTest {
 		list.add(10);
 		list.add(11);
 		list.add(12);
-		assertEquals(list.count(), 12);
+		assertEquals(12, list.count());
 	}
 
 	/**
@@ -257,7 +257,7 @@ class SimpleListTest {
 		list.add(10);
 		list.remove(9);
 		list.remove(1);
-		assertEquals(list.count(), 8);
+		assertEquals(0, list.count());
 	}
 
 	/**
@@ -268,7 +268,7 @@ class SimpleListTest {
 		SimpleList list = new SimpleList();
 		list.add(1);
 		list.remove(2); // should do nothing
-		assertEquals(list.count(), 1);
+		assertEquals(1, list.count());
 	}
 
 	/**
@@ -278,7 +278,7 @@ class SimpleListTest {
 	void testCountRemoveEmpty() {
 		SimpleList list = new SimpleList();
 		list.remove(1); // should do nothing
-		assertEquals(list.count(), 0);
+		assertEquals(0, list.count());
 	}
 
 	/**
@@ -287,7 +287,7 @@ class SimpleListTest {
 	@Test
 	void testToStringEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.toString(), "");
+		assertEquals("", list.toString());
 	}
 
 	/**
@@ -297,7 +297,7 @@ class SimpleListTest {
 	void testToStringRemoveEmpty() {
 		SimpleList list = new SimpleList();
 		list.remove(1); // should do nothing
-		assertEquals(list.toString(), "");
+		assertEquals("", list.toString());
 	}
 
 	/**
@@ -306,7 +306,7 @@ class SimpleListTest {
 	@Test
 	void testSearchEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(list.search(1), -1);
+		assertEquals(-1, list.search(1));
 	}
 
 	/**
@@ -319,7 +319,7 @@ class SimpleListTest {
 		list.add(2);
 		list.add(3);
 		list.add(4);
-		assertEquals(list.search(1), 3);
+		assertEquals(3, list.search(1));
 	}
 
 	/**
@@ -338,7 +338,7 @@ class SimpleListTest {
 		list.add(8);
 		list.add(9);
 		list.remove(9);
-		assertEquals(list.search(9), -1);
+		assertEquals(-1, list.search(9));
 	}
 
 }
