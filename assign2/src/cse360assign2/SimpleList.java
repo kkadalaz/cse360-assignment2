@@ -27,6 +27,15 @@ public class SimpleList {
 		LENGTH = 10;
 		list = new int[LENGTH];
 	}
+	
+	/**
+	 * access the first element in the list
+	 * 
+	 * @return the first element in the list, -1 if not found
+	 */
+	public int first() {
+		return count == 0 ? -1 : list[0];
+	}
 
 	/**
 	 * adds element to the start of the list, pushing all other elements down

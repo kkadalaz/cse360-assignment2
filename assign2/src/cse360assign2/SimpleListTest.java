@@ -7,6 +7,30 @@ import org.junit.jupiter.api.Test;
 class SimpleListTest {
 
 	/**
+	 * test first
+	 */
+	@Test
+	void testFirst() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.append(4);
+		list.append(5);
+		list.append(6);
+		assertEquals(list.first(), 3);
+	}
+
+	/**
+	 * test first on an empty list
+	 */
+	@Test
+	void testFirstEmpty() {
+		SimpleList list = new SimpleList();
+		assertEquals(list.first(), -1);
+	}
+
+	/**
 	 * test add
 	 */
 	@Test
