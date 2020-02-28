@@ -50,9 +50,14 @@ class SimpleListTest {
 		list.add(2);
 		list.add(3);
 		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.remove(9);
 		list.remove(1);
-		list.remove(4);
-		assertEquals(list.toString(), "3 2");
+		assertEquals(list.toString(), "8 7 6 5 4 3 2");
 	}
 
 	/**
@@ -65,8 +70,62 @@ class SimpleListTest {
 		list.add(2);
 		list.add(3);
 		list.add(4);
-		list.remove(5);
-		assertEquals(list.toString(), "4 3 2 1");
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.remove(10);
+		assertEquals(list.toString(), "9 8 7 6 5 4 3 2 1");
+	}
+
+	/**
+	 * test length with empty list
+	 */
+	@Test
+	void testLengthEmpty() {
+		SimpleList list = new SimpleList();
+		assertEquals(list.LENGTH, 10);
+	}
+
+	/**
+	 * test length with add
+	 */
+	@Test
+	void testLengthAdd() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.add(10);
+		list.add(11);
+		assertEquals(list.LENGTH, 15);
+	}
+
+	/**
+	 * test length with remove
+	 */
+	@Test
+	void testLengthRemove() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.remove(9);
+		list.remove(1);
+		assertEquals(list.LENGTH, 7);
 	}
 
 	/**
@@ -122,8 +181,15 @@ class SimpleListTest {
 		list.add(2);
 		list.add(3);
 		list.add(4);
-		list.remove(4);
-		assertEquals(list.count(), 3);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.add(10);
+		list.remove(9);
+		list.remove(1);
+		assertEquals(list.count(), 8);
 	}
 
 	/**
@@ -132,8 +198,6 @@ class SimpleListTest {
 	@Test
 	void testCountRemoveEmpty() {
 		SimpleList list = new SimpleList();
-		list.add(1);
-		list.remove(1);
 		list.remove(1); // should do nothing
 		assertEquals(list.count(), 0);
 	}
@@ -153,7 +217,7 @@ class SimpleListTest {
 	@Test
 	void testToStringRemoveEmpty() {
 		SimpleList list = new SimpleList();
-		list.remove(1);
+		list.remove(1); // should do nothing
 		assertEquals(list.toString(), "");
 	}
 
@@ -186,8 +250,16 @@ class SimpleListTest {
 	void testSearchRemoved() {
 		SimpleList list = new SimpleList();
 		list.add(1);
-		list.remove(1);
-		assertEquals(list.search(1), -1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.remove(9);
+		assertEquals(list.search(9), -1);
 	}
 
 }

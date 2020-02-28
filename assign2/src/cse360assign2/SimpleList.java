@@ -17,7 +17,8 @@ public class SimpleList {
 
 	private int[] list;
 	private int count;
-	private int LENGTH;
+	
+	public int LENGTH;
 
 	/**
 	 * instantiates the list
@@ -68,13 +69,18 @@ public class SimpleList {
 	}
 
 	/**
-	 * removes an element from the last, moving all following elements up
+	 * removes an element from the list.
+	 * <p><ul>
+	 * <li> move all following elements up
+	 * <li> if list has more than 25% empty places, decrease the size of the list
+	 * </ul></p>
 	 * 
 	 * @param element the element to be removed
 	 */
 	public void remove(int element) {
 		// search for the element
 		int location = search(element);
+
 		// if found
 		if (location != -1) {
 			// loop over list
@@ -90,6 +96,31 @@ public class SimpleList {
 		if (count > 0) {
 			// update count
 			count--;
+		}
+		
+		// if the list is more than 25% zeroes
+		// numzeroes / length < 0.25
+		// numzeroes / length < 1/4
+		// (length - count) / length < 1/4
+		// 4*(length - count) < 1*length
+		// 4*length - 4*count < length
+		// 4*length - length < 4*count
+		// 3*length > 4*count
+		// and if the list is not just one element
+		if (3 * LENGTH > 4 * count && LENGTH != 1) {
+			// reduce the length of the list
+			int newlen = (int) (LENGTH * 0.75);
+			// create bigger temporary list
+			int[] newlist = new int[newlen];
+			// loop through the original list
+			for (int counter = 0; counter < newlen; counter++) {
+				// copy elements over
+				newlist[counter] = list[counter];
+			}
+			// update length
+			LENGTH = newlen;
+			// update list
+			list = newlist;
 		}
 	}
 
