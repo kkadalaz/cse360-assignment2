@@ -22,10 +22,20 @@ package cse360assign2;
  */
 public class SimpleList {
 
-	private int[] list;
-	private int count;
+	/**
+	 * number of possible locations in the list
+	 */
+	private int LENGTH;
 
-	public int LENGTH;
+	/**
+	 * array holding the integers
+	 */
+	private int[] list;
+
+	/**
+	 * number of elements currently in the list
+	 */
+	private int count;
 
 	/**
 	 * instantiate list
@@ -59,6 +69,15 @@ public class SimpleList {
 	public int last() {
 		// if list empty, return -1, else return last element
 		return count == 0 ? -1 : list[count - 1];
+	}
+
+	/**
+	 * access the number of possible locations in the list
+	 * 
+	 * @return number of elements in list
+	 */
+	public int size() {
+		return LENGTH;
 	}
 
 	/**

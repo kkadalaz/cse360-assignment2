@@ -140,19 +140,19 @@ class SimpleListTest {
 	}
 
 	/**
-	 * test length with empty list
+	 * test size with empty list
 	 */
 	@Test
-	void testLengthEmpty() {
+	void testSizeEmpty() {
 		SimpleList list = new SimpleList();
-		assertEquals(10, list.LENGTH);
+		assertEquals(10, list.size());
 	}
 
 	/**
-	 * test length with add
+	 * test size with add
 	 */
 	@Test
-	void testLengthAdd() {
+	void testSizeAdd() {
 		SimpleList list = new SimpleList();
 		list.add(1);
 		list.add(2);
@@ -165,14 +165,14 @@ class SimpleListTest {
 		list.add(9);
 		list.add(10);
 		list.add(11);
-		assertEquals(15, list.LENGTH);
+		assertEquals(15, list.size());
 	}
 
 	/**
-	 * test length with append
+	 * test size with append
 	 */
 	@Test
-	void testLengthAppend() {
+	void testSizeAppend() {
 		SimpleList list = new SimpleList();
 		list.add(1);
 		list.add(2);
@@ -186,14 +186,14 @@ class SimpleListTest {
 		list.add(10);
 		list.add(11);
 		list.add(12);
-		assertEquals(15, list.LENGTH);
+		assertEquals(15, list.size());
 	}
 
 	/**
-	 * test length with remove
+	 * test size with remove
 	 */
 	@Test
-	void testLengthRemove() {
+	void testSizeRemove() {
 		SimpleList list = new SimpleList();
 		list.add(1);
 		list.add(2);
@@ -206,7 +206,7 @@ class SimpleListTest {
 		list.add(9);
 		list.remove(9);
 		list.remove(1);
-		assertEquals(7, list.LENGTH);
+		assertEquals(7, list.size());
 	}
 
 	/**
