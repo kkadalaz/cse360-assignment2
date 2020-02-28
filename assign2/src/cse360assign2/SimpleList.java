@@ -52,6 +52,16 @@ public class SimpleList {
 	}
 
 	/**
+	 * access the last element in the list
+	 * 
+	 * @return the last element in the list, -1 if not found
+	 */
+	public int last() {
+		// if list empty, return -1, else return last element
+		return count == 0 ? -1 : list[count - 1];
+	}
+
+	/**
 	 * add element to the start of the list
 	 * <p>
 	 * <ul>

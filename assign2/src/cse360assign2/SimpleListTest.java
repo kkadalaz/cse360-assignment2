@@ -33,6 +33,32 @@ class SimpleListTest {
 	}
 
 	/**
+	 * test last with add, append, remove
+	 */
+	@Test
+	void testLast() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.append(4);
+		list.append(5);
+		list.append(6);
+		list.remove(6);
+		list.remove(1);
+		assertEquals(list.last(), 5);
+	}
+
+	/**
+	 * test last on an empty list
+	 */
+	@Test
+	void testLastEmpty() {
+		SimpleList list = new SimpleList();
+		assertEquals(list.last(), -1);
+	}
+
+	/**
 	 * test add on a full list
 	 */
 	@Test
