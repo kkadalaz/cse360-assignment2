@@ -41,6 +41,27 @@ class SimpleListTest {
 	}
 
 	/**
+	 * test append on a full list
+	 */
+	@Test
+	void testAppendFull() {
+		SimpleList list = new SimpleList();
+		list.append(1);
+		list.append(2);
+		list.append(3);
+		list.append(4);
+		list.append(5);
+		list.append(6);
+		list.append(7);
+		list.append(8);
+		list.append(9);
+		list.append(10);
+		list.append(11);
+		list.append(12);
+		assertEquals(list.toString(), "1 2 3 4 5 6 7 8 9 10 11 12");
+	}
+
+	/**
 	 * test remove
 	 */
 	@Test
@@ -105,6 +126,27 @@ class SimpleListTest {
 		list.add(9);
 		list.add(10);
 		list.add(11);
+		assertEquals(list.LENGTH, 15);
+	}
+
+	/**
+	 * test length with append
+	 */
+	@Test
+	void testLengthAppend() {
+		SimpleList list = new SimpleList();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		list.add(4);
+		list.add(5);
+		list.add(6);
+		list.add(7);
+		list.add(8);
+		list.add(9);
+		list.add(10);
+		list.add(11);
+		list.add(12);
 		assertEquals(list.LENGTH, 15);
 	}
 

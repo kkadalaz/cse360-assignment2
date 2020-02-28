@@ -30,6 +30,7 @@ public class SimpleList {
 
 	/**
 	 * adds element to the start of the list, pushing all other elements down
+	 * if the list is full, increase the size of the list
 	 * 
 	 * @param element the element to be added
 	 */
@@ -61,6 +62,40 @@ public class SimpleList {
 		// insert the element at the start of the list
 		list[0] = element;
 
+		// if list is not yet full
+		if (count < LENGTH) {
+			// update count
+			count++;
+		}
+	}
+
+	/**
+	 * adds element to the end of the list, pushing all other elements down
+	 * if the list is full, increase the size of the list
+	 * 
+	 * @param element the element to be appended
+	 */
+	public void append(int element) {
+		// if list is full
+		if (count == LENGTH) {
+			// expand length
+			int newlen = (int) (LENGTH * 1.5);
+			// create bigger temporary list
+			int[] newlist = new int[newlen];
+			// loop backwards through original list
+			for (int counter = 0; counter < LENGTH; counter++) {
+				// copy to new list
+				newlist[counter] = list[counter];
+			}
+			// update length
+			LENGTH = newlen;
+			// update list
+			list = newlist;
+		}
+
+		// add element to the end of the list
+		list[count] = element;
+	
 		// if list is not yet full
 		if (count < LENGTH) {
 			// update count
